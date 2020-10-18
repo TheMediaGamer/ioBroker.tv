@@ -1,12 +1,7 @@
 'use strict';
 
-/*
- * Created with @iobroker/create-adapter v1.29.1
- */
-
-// The adapter-core module gives you access to the core ioBroker functions
-// you need to create an adapter
 const utils = require('@iobroker/adapter-core');
+const adapterName = require('./package.json').name.split('.').pop();
 
 // Load your modules here, e.g.:
 // const fs = require("fs");
@@ -19,8 +14,9 @@ class Template extends utils.Adapter {
     constructor(options) {
         super({
             ...options,
-            name: 'template',
+            name: adapterName,
         });
+
         this.on('ready', this.onReady.bind(this));
         this.on('stateChange', this.onStateChange.bind(this));
         // this.on('objectChange', this.onObjectChange.bind(this));
@@ -33,6 +29,9 @@ class Template extends utils.Adapter {
      */
     async onReady() {
         // Initialize your adapter here
+
+        const ip = this.config.ipaddress;
+        const port = this.config.port;
 
         // The adapters config (in the instance object everything under the attribute "native") is accessible via
         // this.config:
@@ -161,8 +160,8 @@ if (module.parent) {
     /**
      * @param {Partial<utils.AdapterOptions>} [options={}]
      */
-    module.exports = (options) => new Template(options);
+    module.exports = (options) => new Tv(options);
 } else {
     // otherwise start the instance directly
-    new Template();
+    new Tv();
 }
