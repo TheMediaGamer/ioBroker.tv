@@ -154,15 +154,16 @@ class Template extends utils.Adapter {
     // }
 
 }
+/*
+    // @ts-ignore parent is a valid property on module
+    if (module.parent) {
+        // Export the constructor in compact mode
+        /**
+         * @param {Partial<utils.AdapterOptions>} [options={}]
 
-// @ts-ignore parent is a valid property on module
-if (module.parent) {
-    // Export the constructor in compact mode
-    /**
-     * @param {Partial<utils.AdapterOptions>} [options={}]
-     */
-    module.exports = (options) => new Tv(options);
-} else {
-    // otherwise start the instance directly
-    new Tv();
-}
+        module.exports = (options) => new Tv(options);
+    } else {
+        // otherwise start the instance directly
+        new Tv();
+    }
+    */

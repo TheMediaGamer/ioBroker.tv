@@ -57,7 +57,7 @@
     },
     "native": {
         "ipaddress": "0.0.0.0",
-        "port": "60"
+        "port": "1925"
     },
     "objects": [],
     "instanceObjects": []
